@@ -91,8 +91,7 @@ for i in json_data:
         if i["Room"]:
             occupied_rooms.add(i["Room"].replace(" ",""))
 
-for room in occupied_rooms:
-    print room
+print json.dumps(list(occupied_rooms), sort_keys=True)
 
 #for obj in json_data:
 #   if(obj["Days"] =
