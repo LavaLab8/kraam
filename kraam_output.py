@@ -84,10 +84,15 @@ elif time[-2:] == "pm" or time[-2:] == "PM":
     preTime = newTime.replace(":", "")
     finalTime = int(preTime)
     finalTime += 1200
+occupied_rooms = set()
 for i in json_data:
     if finalTime >= convertToMilitaryTime(i["Time"])["start"] and finalTime <= convertToMilitaryTime(i["Time"])["end"]:
         #print i["Course Title"]
-        print i["Room"]
+        if i["Room"]:
+            occupied_rooms.add(i["Room"].replace(" ",""))
+
+for room in occupied_rooms:
+    print room
 
 #for obj in json_data:
 #   if(obj["Days"] =
